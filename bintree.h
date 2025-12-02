@@ -11,16 +11,16 @@ namespace Tree
         Item key;
         node *left;
         node *right;
-        node(Item k){key = k; left = nullptr; right = nullptr;}
+        node(Item k, double rou){key = k; route = rou; left = nullptr; right = nullptr;}
     };
     typedef node *link;
     link h = nullptr;
 
-    void insert(Item item) 
+    void insert(Item item, double route) 
     {
         if (h == nullptr) 
         {
-            h = new node(item);
+            h = new node(item, route);
             return;
         }
         
@@ -44,7 +44,7 @@ namespace Tree
             }
         }
         
-        link newNode = new node(item);
+        link newNode = new node(item, route);
         if (item < parent->key) 
         {
             parent->left = newNode;

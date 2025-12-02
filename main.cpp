@@ -16,6 +16,6 @@ int main()
     cin >> moves;
     while (moves != 0)
     {
-        
+        Galaxy galactic1(Plan, Roun);
     }
 }
