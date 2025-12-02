@@ -8,7 +8,7 @@ class Corporation
         string typeBody;
         int technology;
     public:
-        Corporation(string tb = "All", int tech = 10)
+        Corporation(int tech = 2, string tb = "All")
         {
             typeBody = tb;
             technology = tech;
@@ -42,6 +42,28 @@ class LogisticsCompany : public Corporation
 };
 class TechTrader : public Corporation
 {
-
+    public:
+        TechTrader(int tech = 1) : Corporation(tech) {};
+        TechTrader(const TechTrader & tech) : Corporation(tech) {};
+        TechTrader & operator=(const TechTrader & tech)
+        {
+            if (this == &tech)
+                return *this;
+            Corporation::operator=(tech);
+            return *this;
+        }
+};
+class MinerCompany : public Corporation
+{
+    public:
+        MinerCompany(int tech = 2, string mine) : Corporation(tech, mine) {};
+        MinerCompany(const MinerCompany & mine) : Corporation(mine) {};
+        MinerCompany & operator=(const MinerCompany & mine)
+        {
+            if (this == &mine)
+                return *this;
+            Corporation::operator=(mine);
+            return *this;
+        }
 };
 #endif
